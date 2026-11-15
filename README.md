@@ -5,8 +5,8 @@ This project trains the same U-Net on **3, 10 and 30 annotated images** and comp
 
 ## Dataset
 
-[EPFL Hippocampus](https://www.epfl.ch/labs/cvlab/data/data-em/) (Lucchi et al., 2012):
-electron-microscopy volume of a mouse brain, with mitochondria annotated.
+[EPFL Hippocampus](https://www.epfl.ch/labs/cvlab/data/data-em/) (Lucchi et al., 2012), an
+electron-microscopy volume of a mouse brain with mitochondria annotated.
 165 training images and 165 test images of 768 x 1024 pixels.
 
 ## Method
@@ -20,7 +20,7 @@ electron-microscopy volume of a mouse brain, with mitochondria annotated.
 
 ## Results
 
-Test Dice, mean ± std over 5 seeds:
+Test Dice, mean ± std over 5 seeds.
 
 | Annotated images | Cosine schedule (final setup) | Constant learning rate |
 |---|---|---|
@@ -34,7 +34,7 @@ Test Dice, mean ± std over 5 seeds:
 
 ### Observations
 
-- Going from 3 to 10 annotated images adds 0.022 of Dice, but going from 10 to 30 adds nothing:
+- Going from 3 to 10 annotated images adds 0.022 of Dice, but going from 10 to 30 adds nothing,
   both reach 0.913. Even 3 images already give 0.891.
 - With a constant learning rate, the std between seeds was about 0.02, as large as the differences
   between 3, 10 and 30 images. With the cosine schedule the std drops below 0.005 and the mean goes up
@@ -53,7 +53,7 @@ pip install -r requirements.txt
 ```
 
 On Windows, `pip` may install a CPU-only PyTorch. To train on an NVIDIA GPU, install the CUDA build
-given by [pytorch.org](https://pytorch.org/get-started/locally/), for example:
+given by [pytorch.org](https://pytorch.org/get-started/locally/), for example
 
 ```bash
 pip install torch --index-url https://download.pytorch.org/whl/cu132
@@ -61,10 +61,10 @@ pip install torch --index-url https://download.pytorch.org/whl/cu132
 
 ## Usage
 
-The trained models are included in `models/`, so the demo works right away:
+The trained models are included in `models/`, so the demo works right away.
 
 ```bash
-streamlit run app.py      # demo: compare the 3 models on example test slices or on your own image
+streamlit run app.py      # demo, compares the 3 models on example test slices or on your own image
 python main.py            # downloads the data, trains 3 x 5 models (about 15 min on a recent GPU), prints the results
 pytest                    # tests (pip install -r requirements-dev.txt)
 ```
